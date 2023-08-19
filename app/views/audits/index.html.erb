@@ -1,0 +1,27 @@
+
+<h1>Listing Audits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entity ID</th>
+      <th>User ID</th>
+      <th>Created At</th>
+      <th>Changed At</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @audits.each do |audit| %>
+      <tr>
+        <td><%= audit.election_name %></td>
+        <td><%= audit.user_email %></td>
+        <td><%= audit.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= audit.changed_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td>
+          <%= link_to 'Show', audit %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -27,9 +27,9 @@ class VotersController < ApplicationController
   # POST /voters.json
   def create
     @voter = Voter.new(voter_params.merge(election: @election))
-
     respond_to do |format|
       if @voter.save
+        AuditService.call(@voter, current_user)
         format.html { redirect_to @voter, notice: 'Voter was successfully created.' }
         format.json { render :show, status: :created, location: @voter }
       else
