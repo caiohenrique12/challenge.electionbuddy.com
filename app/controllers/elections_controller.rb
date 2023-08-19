@@ -26,9 +26,9 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params.merge(user: current_user))
-
     respond_to do |format|
       if @election.save
+        AuditService.call(@election, current_user)
         format.html { redirect_to @election, notice: 'Election was successfully created.' }
         format.json { render :show, status: :created, location: @election }
       else

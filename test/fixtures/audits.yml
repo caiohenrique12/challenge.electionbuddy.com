@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  object_id: 1
-  class_name: MyString
-  changes: MyText
+  entity_id: 1
+  entity_name: MyString
+  changed_data: MyText
   user: one
   changed_at: 2023-08-18 22:24:20
 
 two:
-  object_id: 1
-  class_name: MyString
-  changes: MyText
+  entity_id: 1
+  entity_name: MyString
+  changed_data: MyText
   user: two
   changed_at: 2023-08-18 22:24:20

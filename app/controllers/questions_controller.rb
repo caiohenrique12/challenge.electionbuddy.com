@@ -27,9 +27,9 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params.merge(election: @election))
-
     respond_to do |format|
       if @question.save
+        AuditService.call(@question, current_user)
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
