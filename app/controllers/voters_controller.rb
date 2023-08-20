@@ -42,6 +42,7 @@ class VotersController < ApplicationController
   # PATCH/PUT /voters/1
   # PATCH/PUT /voters/1.json
   def update
+    AuditService.call(@voter, current_user)
     respond_to do |format|
       if @voter.update(voter_params)
         format.html { redirect_to @voter, notice: 'Voter was successfully updated.' }

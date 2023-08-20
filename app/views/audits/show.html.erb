@@ -1,1 +1,11 @@
+<h1>Changes from Election</h1>
+<p><%= @audit.changed_at.strftime("%Y-%m-%d %H:%M:%S") %> by <%= @audit.user_email %></p>
+<p><%= @audit.changed_data_info %></p>
+<h1>Changes from Questions</h1>
+<%= render(partial: 'questions', locals: {questions: @questions}) %>
+<h1>Changes from Answers</h1>
+<%= render(partial: 'answers', locals: {answers: @answers}) %>
+<h1>Changes from Voter</h1>
+<%= render(partial: 'voters', locals: {voters: @voters}) %>
 
+<%= link_to 'Back', audits_path %>

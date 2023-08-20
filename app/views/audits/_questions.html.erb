@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Changes</th>
+      <th>User ID</th>
+      <th>Created At</th>
+      <th>Changed At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% questions.each do |audit_question| %>
+      <tr>
+        <td><%= audit_question.changed_data_info %></td>
+        <td><%= audit_question.user_email %></td>
+        <td><%= audit_question.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= audit_question.changed_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
