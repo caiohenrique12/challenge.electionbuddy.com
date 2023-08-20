@@ -43,6 +43,7 @@ class ElectionsController < ApplicationController
   def update
     respond_to do |format|
       if @election.update(election_params)
+        AuditService.call(@election, current_user)
         format.html { redirect_to @election, notice: 'Election was successfully updated.' }
         format.json { render :show, status: :ok, location: @election }
       else

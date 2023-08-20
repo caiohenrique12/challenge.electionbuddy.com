@@ -23,6 +23,6 @@ class AuditServiceTest < ActionDispatch::IntegrationTest
 
     result = AuditService.call(@election, @user)
 
-    assert_equal result, nil
+    assert_nil result, nil
   end
 end

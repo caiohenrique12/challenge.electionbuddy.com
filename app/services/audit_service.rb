@@ -5,7 +5,8 @@ class AuditService
     return unless object.valid?
 
     audit = Audit.new(entity_id: object.id, entity_name: object.class.name,
-                      changed_data: object.changes.to_json, user: user, changed_at: DateTime.now)
+                      changed_data: object.previous_changes.to_json,
+                      user: user, changed_at: DateTime.now)
 
     return audit.save! if audit.valid?
 
